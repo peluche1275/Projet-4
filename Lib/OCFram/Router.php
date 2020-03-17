@@ -17,13 +17,17 @@ class Router
 
     public function getRoute($url)
     {
-        foreach ($this->route as $route) {
-            if (($varValues = $route->match($url)) !== false) {
+        foreach ($this->routes as $route) {
+
+            if (($varsValues = $route->match($url)) !== false) {
+
                 if ($route->hasVars()) {
-                    $varNames = $routes->varsName();
+                    $varsNames = $route->varsNames();
                     $listVars = [];
 
-                    foreach ($varValues as $key => $match) {
+
+                    foreach ($varsValues as $key => $match) {
+
                         if ($key !== 0) {
                             $listVars[$varsNames[$key - 1]] = $match;
                         }
