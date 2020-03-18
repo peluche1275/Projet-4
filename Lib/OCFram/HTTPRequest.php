@@ -36,7 +36,7 @@ class HTTPRequest extends ApplicationComponent
         return isset($_POST[$key]) ? $_POST[$key] : null;
     }
 
-    public function postExist($key)
+    public function postExists($key)
     {
         return isset($_POST[$key]);
     }

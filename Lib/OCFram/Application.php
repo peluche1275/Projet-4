@@ -34,16 +34,19 @@ abstract class Application
       $vars = [];
 
 
-      if ($route->hasAttribute('vars')) {
+      if ($route->hasAttribute('vars')) 
+      {
         $vars = explode(',', $route->getAttribute('vars'));
       }
       $router->addRoute(new Route($route->getAttribute('url'), $route->getAttribute('module'), $route->getAttribute('action'), $vars));
     }
 
-    try {
+    try 
+    {
       $matchedRoute = $router->getRoute($this->httpRequest->requestURI());
     } catch (\RuntimeException $e) {
-      if ($e->getCode() == Router::NO_ROUTE) {
+      if ($e->getCode() == Router::NO_ROUTE)
+       {
         $this->httpResponse->redirect404();
       }
     }
