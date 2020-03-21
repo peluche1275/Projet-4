@@ -4,7 +4,6 @@ namespace OCFram;
 
 abstract class Field
 {
-    // On utilise le trait Hydrator afin que nos objets Field puissent être hydratés
     use Hydrator;
 
     protected $errorMessage;
@@ -23,7 +22,7 @@ abstract class Field
 
     public function isValid()
     {
-        // On écrira cette méthode plus tard.
+
     }
 
     public function label()
