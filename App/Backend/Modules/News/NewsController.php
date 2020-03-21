@@ -122,4 +122,9 @@ class NewsController extends BackController
 
         $this->page->addVar('form', $form->createView());
     }
+
+    public function executeModeration()
+    {
+        $this->page->addVar('title', 'Modération des commentaires');
+    }
 }

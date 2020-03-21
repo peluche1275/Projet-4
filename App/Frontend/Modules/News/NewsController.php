@@ -7,6 +7,7 @@ use \OCFram\HTTPRequest;
 use \Entity\Comment;
 use \FormBuilder\CommentFormBuilder;
 use \OCFram\FormHandler;
+use \OCFram\PDOFactory;
 
 class NewsController extends BackController
 {
@@ -74,5 +75,11 @@ class NewsController extends BackController
     $this->page->addVar('comment', $comment);
     $this->page->addVar('form', $form->createView());
     $this->page->addVar('title', 'Ajout d\'un commentaire');
+  }
+
+  public function executeSignalement()
+  {
+    $this->page->addVar('title', 'Signalement d\'un commentaire');
+    PDOFactory::getMysqlConnexion()->exec('INSERT INTO `moderation` (`idcom`) VALUES ('.$_GET['id'].')');
   }
 }
