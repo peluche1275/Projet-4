@@ -7,8 +7,11 @@ use \Entity\Comment;
 
 abstract class CommentsManager extends Manager
 {
-
     abstract protected function add(Comment $comment);
+
+    abstract public function delete($id);
+
+    abstract public function deleteFromNews($news);
 
     public function save(Comment $comment)
     {
@@ -20,4 +23,10 @@ abstract class CommentsManager extends Manager
     }
 
     abstract public function getListOf($news);
+
+
+    abstract protected function modify(Comment $comment);
+
+
+    abstract public function get($id);
 }

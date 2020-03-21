@@ -29,8 +29,8 @@ abstract class Application
 
     $routes = $xml->getElementsByTagName('route');
 
-
-    foreach ($routes as $route) {
+    foreach ($routes as $route)
+    {
       $vars = [];
 
 
@@ -44,9 +44,11 @@ abstract class Application
     try 
     {
       $matchedRoute = $router->getRoute($this->httpRequest->requestURI());
-    } catch (\RuntimeException $e) {
+    } 
+    catch (\RuntimeException $e) 
+    {
       if ($e->getCode() == Router::NO_ROUTE)
-       {
+      {
         $this->httpResponse->redirect404();
       }
     }
