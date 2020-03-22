@@ -5,12 +5,14 @@
 
 <p>Voici la liste des commentaires à modérer :</p>
 
-<?php 
-/*
-foreach ($listeNews as $news) {
+<?php
+foreach ($listModeration as $mod) {
 ?>
-    <h2><a href="news-<?= $news['id'] ?>.html"><?= $news['titre'] ?></a></h2>
-    <p><?= nl2br($news['contenu']) ?></p>
+    <?php $comment = $commentsManager->get($mod['idcom']);
+    ?>
+    <p> <strong> <?php echo $comment['auteur'] ?></strong></p>
+    <p> <?php echo $comment['contenu'] ?> </p>
+    <a href="admin/comment-update-<?= $comment['id'] ?>.html">Modifier</a> |
+    <a href="admin/comment-delete-<?= $comment['id'] ?>.html">Supprimer</a>
 <?php
 }
-*/

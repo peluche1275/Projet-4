@@ -126,5 +126,12 @@ class NewsController extends BackController
     public function executeModeration()
     {
         $this->page->addVar('title', 'Modération des commentaires');
+
+        $manager = $this->managers->getManagerOf('Moderation');
+
+        $listModeration = $manager->getList(0, 10);
+
+        $this->page->addVar('listModeration', $listModeration);
+        $this->page->addVar('commentsManager', $this->managers->getManagerOf('Comments'));
     }
 }
