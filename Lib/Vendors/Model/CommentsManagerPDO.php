@@ -22,6 +22,13 @@ class CommentsManagerPDO extends CommentsManager
     public function delete($id)
     {
         $this->dao->exec('DELETE FROM comments WHERE id = ' . (int) $id);
+       try
+        {
+            $this->dao->exec('DELETE  FROM moderation WHERE idcom = ' . (int) $id);  
+        }
+        finally
+        {         
+        }
     }
 
     public function deleteFromNews($news)
@@ -70,5 +77,10 @@ class CommentsManagerPDO extends CommentsManager
         $q->setFetchMode(\PDO::FETCH_CLASS | \PDO::FETCH_PROPS_LATE, '\Entity\Comment');
 
         return $q->fetch();
+    }
+
+    public function approve($id)
+    {
+        $this->dao->exec('DELETE FROM moderation WHERE idcom = ' . (int) $id);
     }
 }

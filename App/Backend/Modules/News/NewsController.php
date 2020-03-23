@@ -33,6 +33,15 @@ class NewsController extends BackController
         $this->app->httpResponse()->redirect('.');
     }
 
+    public function executeApproveComment(HTTPRequest $request)
+    {
+        $this->managers->getManagerOf('Comments')->approve($request->getData('id'));
+
+        $this->app->user()->setFlash('Le commentaire a bien été approuvé !');
+
+        $this->app->httpResponse()->redirect('.');
+    }
+
     public function executeIndex(HTTPRequest $request)
     {
         $this->page->addVar('title', 'Gestion des news');
