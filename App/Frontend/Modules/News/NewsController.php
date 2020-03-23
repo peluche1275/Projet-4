@@ -80,6 +80,6 @@ class NewsController extends BackController
   public function executeSignalement()
   {
     $this->page->addVar('title', 'Signalement d\'un commentaire');
-    PDOFactory::getMysqlConnexion()->exec('INSERT INTO `moderation` (`idcom`) VALUES ('.$_GET['id'].')');
+    $this->managers->getManagerOf('Comments')->signaler($_GET['id']);
   }
 }

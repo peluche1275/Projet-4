@@ -19,7 +19,7 @@ class NewsController extends BackController
         $this->managers->getManagerOf('News')->delete($newsId);
         $this->managers->getManagerOf('Comments')->deleteFromNews($newsId);
 
-        $this->app->user()->setFlash('La news a bien été supprimée !');
+        $this->app->user()->setFlash('Le billet a bien été supprimé !');
 
         $this->app->httpResponse()->redirect('.');
     }
@@ -56,14 +56,14 @@ class NewsController extends BackController
     {
         $this->processForm($request);
 
-        $this->page->addVar('title', 'Ajout d\'une news');
+        $this->page->addVar('title', 'Ajout d\'un billet');
     }
 
     public function executeUpdate(HTTPRequest $request)
     {
         $this->processForm($request);
 
-        $this->page->addVar('title', 'Modification d\'une news');
+        $this->page->addVar('title', 'Modification d\'un billet');
     }
 
     public function executeUpdateComment(HTTPRequest $request)
@@ -124,7 +124,7 @@ class NewsController extends BackController
         $formHandler = new FormHandler($form, $this->managers->getManagerOf('News'), $request);
 
         if ($formHandler->process()) {
-            $this->app->user()->setFlash($news->isNew() ? 'La news a bien été ajoutée !' : 'La news a bien été modifiée !');
+            $this->app->user()->setFlash($news->isNew() ? 'Le billet a bien été ajouté !' : 'Le billet a bien été modifié !');
 
             $this->app->httpResponse()->redirect('/admin/');
         }
@@ -136,9 +136,9 @@ class NewsController extends BackController
     {
         $this->page->addVar('title', 'Modération des commentaires');
 
-        $manager = $this->managers->getManagerOf('Moderation');
+        $manager = $this->managers->getManagerOf('Comments');
 
-        $listModeration = $manager->getList(0, 10);
+        $listModeration = $manager->getListMod(0, 10);
 
         $this->page->addVar('listModeration', $listModeration);
         $this->page->addVar('commentsManager', $this->managers->getManagerOf('Comments'));

@@ -83,4 +83,20 @@ class CommentsManagerPDO extends CommentsManager
     {
         $this->dao->exec('DELETE FROM moderation WHERE idcom = ' . (int) $id);
     }
+    public function signaler($id)
+    {
+        $this->dao->exec('INSERT INTO `moderation` (`idcom`) VALUES ('.(int) $id.')');
+    }
+
+    public function getListMod($debut = -1, $limite = -1)
+    {
+        $sql = 'SELECT idcom FROM moderation ORDER BY id DESC';
+
+        if ($debut != -1 || $limite != -1) {
+            $sql .= ' LIMIT ' . (int) $limite . ' OFFSET ' . (int) $debut;
+        }
+
+        $listModeration = $this->dao->query($sql)->fetchAll();
+        return $listModeration;
+    }
 }
