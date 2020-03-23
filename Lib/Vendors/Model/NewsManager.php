@@ -14,7 +14,7 @@ abstract class NewsManager extends Manager
         if ($news->isValid()) {
             $news->isNew() ? $this->add($news) : $this->modify($news);
         } else {
-            throw new \RuntimeException('La news doit être validée pour être enregistrée');
+            throw new \RuntimeException('Le billet doit être validé pour être enregistrée');
         }
     }
 
