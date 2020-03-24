@@ -39,7 +39,16 @@ class NewsController extends BackController
 
         $this->app->user()->setFlash('Le commentaire a bien été approuvé !');
 
-        $this->app->httpResponse()->redirect('.');
+        $this->app->httpResponse()->redirect('/admin/moderation/');
+    }
+
+    public function executeHideComment(HTTPRequest $request)
+    {
+        $this->managers->getManagerOf('Comments')->cacher($request->getData('id'));
+
+        $this->app->user()->setFlash('Le commentaire a bien été cacher !');
+
+        $this->app->httpResponse()->redirect('/admin/moderation/');
     }
 
     public function executeIndex(HTTPRequest $request)

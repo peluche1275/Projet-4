@@ -22,10 +22,6 @@ class CommentsManagerPDO extends CommentsManager
     public function delete($id)
     {
         $this->dao->exec('DELETE FROM comments WHERE id = ' . (int) $id);
-        try {
-            $this->dao->exec('DELETE  FROM moderation WHERE idcom = ' . (int) $id);
-        } finally {
-        }
     }
 
     public function deleteFromNews($news)
@@ -39,7 +35,7 @@ class CommentsManagerPDO extends CommentsManager
             throw new \InvalidArgumentException('L\'identifiant de la news passé doit être un nombre entier valide');
         }
 
-        $q = $this->dao->prepare('SELECT id, news, auteur, contenu, date FROM comments WHERE news = :news');
+        $q = $this->dao->prepare('SELECT id, news, auteur, contenu, date FROM comments WHERE news = :news AND cacher = 0');
         $q->bindValue(':news', $news, \PDO::PARAM_INT);
         $q->execute();
 
@@ -78,25 +74,22 @@ class CommentsManagerPDO extends CommentsManager
 
     public function approve($id)
     {
-        $this->dao->exec('DELETE FROM moderation WHERE idcom = ' . (int) $id);
+        $this->dao->exec('UPDATE `comments` SET `signaler` = 0 WHERE `comments`.`id` =' .(int) $id);
     }
     public function signaler($id)
     {
-       /* $request = $this->dao->query('SELECT COUNT(*) AS verif_exist FROM moderation WHERE idcom='.$id.'');
-        $data = $this->dao->fetch($request);
-        if($data['verif_exist'] > 0)
-        {
-        
-        }
-        else
-        { */
-            $this->dao->exec('INSERT INTO `moderation` (`idcom`) VALUES (' . (int) $id . ')');
-        //}
+            $this->dao->exec('UPDATE `comments` SET `signaler` = 1 WHERE `comments`.`id` =' .(int) $id);
+    }
+
+    public function cacher($id)
+    {
+            $this->dao->exec('UPDATE `comments` SET `cacher` = 1 WHERE `comments`.`id` =' .(int) $id);
     }
 
     public function getListMod($debut = -1, $limite = -1)
     {
-        $sql = 'SELECT idcom FROM moderation ORDER BY id DESC';
+        $sql = 'SELECT id FROM comments WHERE signaler = 1 AND `cacher` = 0  ORDER BY id DESC';
+        
 
         if ($debut != -1 || $limite != -1) {
             $sql .= ' LIMIT ' . (int) $limite . ' OFFSET ' . (int) $debut;
