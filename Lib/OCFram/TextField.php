@@ -9,13 +9,18 @@ class TextField extends Field
 
     public function buildWidget()
     {
+        $id = "commentaire";
+        if ($_GET['app'] == "Backend") {
+            $id = "mytextarea";
+        }
+
         $widget = '';
 
         if (!empty($this->errorMessage)) {
             $widget .= $this->errorMessage . '<br />';
         }
 
-        $widget .= '<label>' . $this->label . '</label><textarea name="' . $this->name . '"';
+        $widget .= '<label>' . $this->label . '</label><textarea id="' . $id . '" name="' . $this->name . '"';
 
         if (!empty($this->cols)) {
             $widget .= ' cols="' . $this->cols . '"';

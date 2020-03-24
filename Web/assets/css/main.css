@@ -72,6 +72,11 @@ input, select, textarea {
 	appearance: none;
 }
 
+#mytextarea, .tox-editor-container,.tox, .tox-tinymce,
+{
+	background:rgba(160, 160, 160, 0.075);
+}
+
 /* Basic */
 
 	@-ms-viewport {
