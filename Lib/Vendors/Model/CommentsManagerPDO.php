@@ -22,12 +22,9 @@ class CommentsManagerPDO extends CommentsManager
     public function delete($id)
     {
         $this->dao->exec('DELETE FROM comments WHERE id = ' . (int) $id);
-       try
-        {
-            $this->dao->exec('DELETE  FROM moderation WHERE idcom = ' . (int) $id);  
-        }
-        finally
-        {         
+        try {
+            $this->dao->exec('DELETE  FROM moderation WHERE idcom = ' . (int) $id);
+        } finally {
         }
     }
 
@@ -85,7 +82,16 @@ class CommentsManagerPDO extends CommentsManager
     }
     public function signaler($id)
     {
-        $this->dao->exec('INSERT INTO `moderation` (`idcom`) VALUES ('.(int) $id.')');
+       /* $request = $this->dao->query('SELECT COUNT(*) AS verif_exist FROM moderation WHERE idcom='.$id.'');
+        $data = $this->dao->fetch($request);
+        if($data['verif_exist'] > 0)
+        {
+        
+        }
+        else
+        { */
+            $this->dao->exec('INSERT INTO `moderation` (`idcom`) VALUES (' . (int) $id . ')');
+        //}
     }
 
     public function getListMod($debut = -1, $limite = -1)
