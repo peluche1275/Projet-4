@@ -1,5 +1,5 @@
 <! -- ARTICLE -->
-
+    <p><a href="/">Retour à l'accueil.</a></p>
     <article class="post">
         <header>
             <div class="title">
@@ -44,3 +44,5 @@
         ?>
 
         <p><a href="commenter-<?= $news['id'] ?>.html">Ajouter un commentaire</a></p>
+
+        <p><a href="/">Retour à l'accueil.</a></p>

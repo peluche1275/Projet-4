@@ -1,6 +1,5 @@
 
-let signaler = function (button) 
-{
+let signaler = function (button) {
 
     // PROPRIETIES //
 
@@ -8,13 +7,11 @@ let signaler = function (button)
 
     // METHODS //
 
-    this.run = function () 
-    {
-        button.addEventListener("click", function(Event){
-            if (confirm("Voulez-vous signaler ce commentaire ?") == false) 
-        {
-            Event.preventDefault();
-        }
+    this.run = function () {
+        button.addEventListener("click", function (Event) {
+            if (confirm("Voulez-vous signaler ce commentaire ?") == false) {
+                Event.preventDefault();
+            }
         });
     }
 }

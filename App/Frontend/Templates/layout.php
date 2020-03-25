@@ -19,7 +19,7 @@
       <h1><a href="/">Blog de Jean Forteroche</a></h1>
       <nav class="links">
         <ul>
-          <li><a href="/">Accueil</a></li>
+        <li><a href="/">Accueil</a></li>
           <?php if ($user->isAuthenticated()) { ?>
             <li><a href="/admin/">Gestion des billets</a></li>
             <li><a href="/admin/news-insert.html">Ajouter un billet</a></li>
