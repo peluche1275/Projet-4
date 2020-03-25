@@ -35,7 +35,7 @@
                         <a href="admin/comment-update-<?= $comment['id'] ?>.html">Modifier</a> |
                         <a href="admin/comment-delete-<?= $comment['id'] ?>.html">Supprimer</a> |
                     <?php } ?>
-                    <a href="/signalement-<?= $comment['id'] ?>">Signaler</a>
+                    <a href="/signalement-<?= $comment['id'] ?>" id="signalement">Signaler</a>
                 </legend>
                 <p><?= nl2br(htmlspecialchars($comment['contenu'])) ?></p>
             </fieldset>

@@ -10,7 +10,7 @@
   <meta http-equiv="X-UA-Compatible" content="ie=edge">
   <link rel="stylesheet" href="/assets/css/main.css" type="text/css" />
   <link rel="icon" href="/images/favicon.ico" />
-  
+
 </head>
 
 <body>
@@ -41,9 +41,11 @@
   </div>
 </body>
 <script src="https://cdn.tiny.cloud/1/u4pd6rbvd07ozig8jckz7mle2zc9bp3afeithr8ilex6i8u2/tinymce/5/tinymce.min.js" referrerpolicy="origin"></script>
-  <script>
-    tinymce.init({
-      selector: '#mytextarea'
-    });
-  </script>
+<script>
+  tinymce.init({
+    selector: '#mytextarea'
+  });
+</script>
+<script src="assets/js/signaler.js"></script>
+<script src="assets/js/main.js"></script>
 </html>
