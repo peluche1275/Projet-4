@@ -4,8 +4,13 @@ namespace OCFram;
 
 class Page extends ApplicationComponent
 {
+
+    // PROPERTIES //
+
     protected $contentFile;
     protected $vars = [];
+
+    // METHODS //
 
     public function addVar($var, $value)
     {
@@ -35,6 +40,7 @@ class Page extends ApplicationComponent
         return ob_get_clean();
     }
 
+    // SETTER //
     public function setContentFile($contentFile)
     {
         if (!is_string($contentFile) || empty($contentFile)) {

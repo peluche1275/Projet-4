@@ -4,9 +4,13 @@ namespace OCFram;
 
 class Router
 {
+    // PROPERTY //
+
     protected $routes = [];
 
     const NO_ROUTE = 1;
+
+    // METHOD //
 
     public function addRoute(Route $route)
     {
@@ -14,6 +18,8 @@ class Router
             $this->routes[] = $route;
         }
     }
+
+    // METHOD //
 
     public function getRoute($url)
     {

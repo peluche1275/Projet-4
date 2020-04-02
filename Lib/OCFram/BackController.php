@@ -4,11 +4,16 @@ namespace OCFram;
 
 abstract class BackController extends ApplicationComponent
 {
+
+    // PROPERTIES //
+
     protected $action = '';
     protected $module = '';
     protected $page = null;
     protected $view = '';
     protected $managers = null;
+
+    // CONSTRUCTOR //
 
     public function __construct(Application $app, $module, $action)
     {
@@ -21,6 +26,8 @@ abstract class BackController extends ApplicationComponent
         $this->setAction($action);
         $this->setView($action);
     }
+
+    // METHODS //
 
     public function execute()
     {
@@ -38,6 +45,8 @@ abstract class BackController extends ApplicationComponent
     {
         return $this->page;
     }
+
+    // SETTERS //
 
     public function setModule($module)
     {

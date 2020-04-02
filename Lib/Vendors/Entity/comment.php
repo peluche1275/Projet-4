@@ -6,6 +6,9 @@ use \OCFram\Entity;
 
 class Comment extends Entity
 {
+
+    // PROPERTIES //
+
     protected $news,
         $auteur,
         $contenu,
@@ -14,10 +17,14 @@ class Comment extends Entity
     const AUTEUR_INVALIDE = 1;
     const CONTENU_INVALIDE = 2;
 
+    // METHOD //
+
     public function isValid()
     {
         return !(empty($this->auteur) || empty($this->contenu));
     }
+
+    // SETTERS //
 
     public function setNews($news)
     {
@@ -47,6 +54,8 @@ class Comment extends Entity
         $this->date = $date;
     }
 
+    // GETTERS //
+    
     public function news()
     {
         return $this->news;

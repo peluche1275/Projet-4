@@ -10,6 +10,9 @@ use \OCFram\NotNullValidator;
 
 class CommentFormBuilder extends FormBuilder
 {
+
+    // METHOD //
+    
     public function build()
     {
         $this->form->add(new StringField([

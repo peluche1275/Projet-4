@@ -4,7 +4,11 @@ namespace OCFram;
 
 class MaxLengthValidator extends Validator
 {
+    // PROPERTY //
+
     protected $maxLength;
+
+    // CONSTRUCTOR //
 
     public function __construct($errorMessage, $maxLength)
     {
@@ -12,6 +16,8 @@ class MaxLengthValidator extends Validator
 
         $this->setMaxLength($maxLength);
     }
+
+    // METHODS //
 
     public function isValid($value)
     {

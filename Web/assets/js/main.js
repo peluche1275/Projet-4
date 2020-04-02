@@ -1,5 +1,7 @@
+// LAUNCHING THE 'REPORT' OBJECT //
+
 let button = document.getElementById("signalement");
-let nouveauSignaler = new signaler(button);
-nouveauSignaler.run();
+let newReport = new Report(button);
+newReport.run();
 
 

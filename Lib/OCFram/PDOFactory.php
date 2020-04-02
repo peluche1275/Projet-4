@@ -4,6 +4,9 @@ namespace OCFram;
 
 class PDOFactory
 {
+
+    // METHOD //
+    
     public static function getMysqlConnexion()
     {
         $db = new \PDO('mysql:host=localhost;dbname=systemenews', 'root', '');
@@ -12,3 +15,4 @@ class PDOFactory
         return $db;
     }
 }
+

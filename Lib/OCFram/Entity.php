@@ -4,11 +4,16 @@ namespace OCFram;
 
 abstract class Entity implements \ArrayAccess
 {
+    // TRAIT //
 
     use Hydrator;
 
+    // PROPERTIES //
+
     protected $erreurs = [],
         $id;
+
+    // CONSTRUCTOR //
 
     public function __construct(array $donnees = [])
     {
@@ -17,6 +22,8 @@ abstract class Entity implements \ArrayAccess
         }
     }
 
+    // METHODS //
+    
     public function isNew()
     {
         return empty($this->id);

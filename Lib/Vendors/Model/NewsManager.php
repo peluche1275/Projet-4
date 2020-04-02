@@ -7,6 +7,9 @@ use \Entity\News;
 
 abstract class NewsManager extends Manager
 {
+
+    // METHODS //
+
     abstract protected function add(News $news);
 
     public function save(News $news)

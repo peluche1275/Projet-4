@@ -4,8 +4,13 @@ namespace OCFram;
 
 class TextField extends Field
 {
+    // PROPERTIES //
+
     protected $cols;
     protected $rows;
+
+
+    // METHOD //
 
     public function buildWidget()
     {
@@ -39,6 +44,8 @@ class TextField extends Field
         return $widget . '</textarea>';
     }
 
+    // SETTERS //
+    
     public function setCols($cols)
     {
         $cols = (int) $cols;

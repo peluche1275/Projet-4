@@ -6,6 +6,9 @@ use \Entity\News;
 
 class NewsManagerPDO extends NewsManager
 {
+
+    // METHODS //
+
     protected function add(News $news)
     {
         $requete = $this->dao->prepare('INSERT INTO news SET titre = :titre, contenu = :contenu, dateAjout = NOW(), dateModif = NOW()');

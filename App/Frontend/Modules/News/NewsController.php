@@ -11,6 +11,9 @@ use \OCFram\PDOFactory;
 
 class NewsController extends BackController
 {
+
+  // METHODS //
+  
   public function executeIndex(HTTPRequest $request)
   {
     $nombreNews = $this->app->config()->get('nombre_news');

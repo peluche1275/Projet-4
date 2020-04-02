@@ -6,6 +6,8 @@ use \OCFram\Entity;
 
 class News extends Entity
 {
+    // PROPERTIES //
+
     protected $titre,
         $contenu,
         $dateAjout,
@@ -13,6 +15,8 @@ class News extends Entity
 
     const TITRE_INVALIDE = 2;
     const CONTENU_INVALIDE = 3;
+
+    // METHOD //
 
     public function isValid()
     {

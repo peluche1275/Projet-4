@@ -4,11 +4,15 @@ namespace OCFram;
 
 class Route
 {
+    // PROPERTIES //
+
     protected $action;
     protected $module;
     protected $url;
     protected $varsNames;
     protected $vars = [];
+
+    // CONSTRUCTOR //
 
     public function __construct($url, $module, $action, array $varsNames)
     {
@@ -31,6 +35,8 @@ class Route
             return false;
         }
     }
+
+    // SETTERS //
 
     public function setAction($action)
     {
@@ -63,6 +69,8 @@ class Route
         $this->vars = $vars;
     }
 
+    // GETTER //
+    
     public function action()
     {
         return $this->action;

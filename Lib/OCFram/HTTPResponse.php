@@ -5,7 +5,7 @@ namespace OCFram;
 class HTTPResponse extends ApplicationComponent
 {
 
-    // PROPRIETIES //
+    // PROPERTY//
 
     protected $page;
 

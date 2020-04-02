@@ -10,6 +10,9 @@ use \OCFram\NotNullValidator;
 
 class NewsFormBuilder extends FormBuilder
 {
+
+    // METHOD //
+    
     public function build()
     {
         $this->form->add(new StringField([

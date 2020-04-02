@@ -4,7 +4,11 @@ namespace OCFram;
 
 abstract class Field
 {
+    // TRAIT //
+
     use Hydrator;
+
+    // PROPERTIES //
 
     protected $errorMessage;
     protected $label;
@@ -12,12 +16,16 @@ abstract class Field
     protected $validators = [];
     protected $value;
 
+    // CONSTRUCTOR //
+
     public function __construct(array $options = [])
     {
         if (!empty($options)) {
             $this->hydrate($options);
         }
     }
+    
+    // METHODS //
 
     abstract public function buildWidget();
 
@@ -32,6 +40,8 @@ abstract class Field
 
         return true;
     }
+
+    // GETTERS //
 
     public function label()
     {
@@ -57,6 +67,8 @@ abstract class Field
     {
         return $this->value;
     }
+
+    // SETTERS //
 
     public function setLabel($label)
     {

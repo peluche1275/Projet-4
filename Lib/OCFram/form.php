@@ -4,13 +4,20 @@ namespace OCFram;
 
 class Form
 {
+
+    // PROPERTIES //
+
     protected $entity;
     protected $fields = [];
+
+    // CONSTRUCTOR //
 
     public function __construct(Entity $entity)
     {
         $this->setEntity($entity);
     }
+
+    // METHODS //
 
     public function add(Field $field)
     {

@@ -4,9 +4,13 @@ namespace OCFram;
 
 class Managers
 {
+    // PROPERTIES //
+
     protected $api = null;
     protected $dao = null;
     protected $managers = [];
+
+    // CONSTRUCTOR //
 
     public function __construct($api, $dao)
     {
@@ -14,6 +18,8 @@ class Managers
         $this->dao = $dao;
     }
 
+    // METHOD //
+    
     public function getManagerOf($module)
     {
         if (!is_string($module) || empty($module)) 

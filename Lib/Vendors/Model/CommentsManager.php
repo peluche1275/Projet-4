@@ -7,6 +7,9 @@ use \Entity\Comment;
 
 abstract class CommentsManager extends Manager
 {
+
+    // METHODS //
+    
     abstract protected function add(Comment $comment);
 
     abstract public function delete($id);

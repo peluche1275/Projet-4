@@ -2,7 +2,7 @@
 
 class SplClassLoader
 {
-    // PROPRIETIES //
+    // PROPERTIES //
 
     private 
     $_fileExtension = '.php',

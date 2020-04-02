@@ -1,15 +1,18 @@
+let Report = function (button) 
+{
 
-let signaler = function (button) {
-
-    // PROPRIETIES //
+    // PROPERTY //
 
     this.button = button;
 
-    // METHODS //
+    // METHOD //
 
-    this.run = function () {
-        button.addEventListener("click", function (Event) {
-            if (confirm("Voulez-vous signaler ce commentaire ?") == false) {
+    this.run = function () 
+    {
+        button.addEventListener("click", function (Event) 
+        {
+            if (confirm("Voulez-vous signaler ce commentaire ?") == false) 
+            {
                 Event.preventDefault();
             }
         });

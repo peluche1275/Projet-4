@@ -7,6 +7,9 @@ use \OCFram\HTTPRequest;
 
 class ConnexionController extends BackController
 {
+
+    // METHOD //
+    
     public function executeIndex(HTTPRequest $request)
     {
         $this->page->addVar('title', 'Connexion');

@@ -3,12 +3,17 @@ namespace OCFram;
  
 abstract class Application
 {
+
+  // PROPERTIES //
+
   protected $httpRequest;
   protected $httpResponse;
   protected $name;
   protected $user;
   protected $config;
  
+  // CONSTRUCTOR //
+
   public function __construct()
   {
     $this->httpRequest = new HTTPRequest($this);
@@ -19,6 +24,8 @@ abstract class Application
     $this->name = '';
   }
  
+  // METHODS //
+
   public function getController()
   {
     $router = new Router;

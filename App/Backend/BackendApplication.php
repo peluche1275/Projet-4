@@ -6,12 +6,17 @@ use \OCFram\Application;
 
 class BackendApplication extends Application
 {
+
+    // CONSTRUCTOR //
+
     public function __construct()
     {
         parent::__construct();
 
         $this->name = 'Backend';
     }
+
+    // METHOD //
 
     public function run()
     {
